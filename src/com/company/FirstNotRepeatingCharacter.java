@@ -1,16 +1,16 @@
 package com.company;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 public class FirstNotRepeatingCharacter {
 
-    char firstNotRepeatingCharacter(String s) {
+    public static char firstNotRepeatingCharacter(String s) {
 
         int length = s.length();
-        HashMap<Character, Integer> repeatCheck = new HashMap<>();
+        HashMap<Character, Integer> repeatCheck = new LinkedHashMap<>();
 
         for (int i = 0; i < length; i++) {
-
             if (repeatCheck.containsKey(s.charAt(i))) {
                 repeatCheck.put(s.charAt(i), repeatCheck.get(s.charAt(i)) + 1);
             } else {
