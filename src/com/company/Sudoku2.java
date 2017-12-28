@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Sudoku2 {
     public static boolean sudoku2(char[][] grid) {
@@ -8,6 +9,9 @@ public class Sudoku2 {
         char[][] columns = new char[9][9];
         char[][] rows = new char[9][9];
         ArrayList<ArrayList<Character>> subGrids = new ArrayList<>();
+        HashMap<Character, Integer> columnCheck = new HashMap<>();
+        HashMap<Character, Integer> rowCheck = new HashMap<>();
+        HashMap<Character, Integer> subGridCheck = new HashMap<>();
 
         for (int i = 0; i < 9; i++) {
             rows[i] = grid[i];
@@ -19,18 +23,53 @@ public class Sudoku2 {
 
         for (int i = 0; i < 9; i+= 3) {
 
-            ArrayList<Character> temp = new ArrayList<>();
-            for (int j = 0; j < 3; j ++) {
-                temp.add(grid[j][i]);
-                temp.add(grid[j][i+1]);
-                temp.add(grid[j][i+2]);
+            for (int k = 0; k < 9; k += 3) {
+
+                ArrayList<Character> temp = new ArrayList<>();
+                for (int j = 0; j < 3; j ++) {
+                    temp.add(grid[j + k][i]);
+                    temp.add(grid[j + k][i+1]);
+                    temp.add(grid[j + k][i+2]);
+                }
+                subGrids.add(temp);
             }
-            subGrids.add(temp);
         }
 
-        System.out.println(columns[0]);
-        System.out.println(rows[0]);
-        System.out.println(subGrids.get(0));
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (columns[i][j] != '.') {
+                    if (columnCheck.containsKey(columns[i][j])) {
+                        System.out.println("FalseColumncheck");
+                        return false;
+                    } else {
+                        columnCheck.put(columns[i][j], 0);
+                    }
+                }
+
+                if (rows[i][j] != '.') {
+                    if (rowCheck.containsKey(rows[i][j])) {
+                        System.out.println("FalseRowcheck");
+                        return false;
+                    } else {
+                        rowCheck.put(rows[i][j], 0);
+                    }
+                }
+
+                if (!subGrids.get(i).get(j).equals('.')) {
+                    if (subGridCheck.containsKey(subGrids.get(i).get(j))) {
+                        System.out.println("Falsesubgrid");
+                        return false;
+                    } else {
+                        subGridCheck.put(subGrids.get(i).get(j), 0);
+                    }
+                }
+            }
+            columnCheck.clear();
+            rowCheck.clear();
+            subGridCheck.clear();
+        }
+
+        System.out.println("True");
         return true;
     }
 }
