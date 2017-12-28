@@ -1,13 +1,22 @@
 package com.company;
-import com.company.FizzBuzz;
 
 public class Main {
 
-    static String n = "ngrhhqbhnsipkcoqjyviikvxbxyphsnjpdxkhtadltsuxbfbrkof";
+    static char[][] grid = {{'.', '.', '.', '.', '2', '.', '.', '9', '.'},
+            {'.', '.', '.', '.', '6', '.', '.', '.', '.'},
+            {'7', '1', '.', '.', '7', '5', '.', '.', '.'},
+            {'.', '7', '.', '.', '.', '.', '.', '.', '.'},
+            {'.', '.', '.', '.', '8', '3', '.', '.', '.'},
+            {'.', '.', '8', '.', '.', '7', '.', '6', '.'},
+            {'.', '.', '.', '.', '.', '2', '.', '.', '.'},
+            {'.', '1', '.', '2', '.', '.', '.', '.', '.'},
+            {'.', '2', '.', '.', '3', '.', '.', '.', '.'}};
 
     public static void main(String[] args) {
+
+
 	// write your code here
-        FirstNotRepeatingCharacter.firstNotRepeatingCharacter(n);
+        Sudoku2.sudoku2(grid);
       }
 
 
