@@ -1,11 +1,13 @@
 package com.company;
 
+import java.util.ArrayList;
+
 public class Sudoku2 {
     public static boolean sudoku2(char[][] grid) {
 
         char[][] columns = new char[9][9];
         char[][] rows = new char[9][9];
-        char[][] subGrids = new char[9][9];
+        ArrayList<ArrayList<Character>> subGrids = new ArrayList<>();
 
         for (int i = 0; i < 9; i++) {
             rows[i] = grid[i];
@@ -15,20 +17,20 @@ public class Sudoku2 {
             }
         }
 
-        int counter = 0;
-        for (int i = 0; i < 9; i++) {
+        for (int i = 0; i < 9; i+= 3) {
 
-            for (int j = 0; j < 9; j += 3) {
-                subGrids[counter][j] = grid[i][j];
-                subGrids[counter][j+1] = grid[i][j+1];
-                subGrids[counter][j+2] = grid[i][j+2];
+            ArrayList<Character> temp = new ArrayList<>();
+            for (int j = 0; j < 3; j ++) {
+                temp.add(grid[j][i]);
+                temp.add(grid[j][i+1]);
+                temp.add(grid[j][i+2]);
             }
-            counter++;
+            subGrids.add(temp);
         }
 
-        System.out.println(columns.length);
-        System.out.println(rows.length);
-        System.out.println(subGrids.length);
+        System.out.println(columns[0]);
+        System.out.println(rows[0]);
+        System.out.println(subGrids.get(0));
         return true;
     }
 }
