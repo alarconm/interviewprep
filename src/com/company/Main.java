@@ -2,22 +2,17 @@ package com.company;
 
 public class Main {
 
-    static char[][] grid =
-            {{'.', '.', '.', '.', '2', '.', '.', '9', '.'},
-            {'.', '.', '.', '.', '6', '.', '.', '.', '.'},
-            {'7', '1', '.', '.', '7', '5', '.', '.', '.'},
-            {'.', '7', '.', '.', '.', '.', '.', '.', '.'},
-            {'.', '.', '.', '.', '8', '3', '.', '.', '.'},
-            {'.', '.', '8', '.', '.', '7', '.', '6', '.'},
-            {'.', '.', '.', '.', '.', '2', '.', '.', '.'},
-            {'.', '1', '.', '2', '.', '.', '.', '.', '.'},
-            {'.', '2', '.', '.', '3', '.', '.', '.', '.'}};
+    static String[] crypt = {"AAAAAAAAAAAAAA", "BBBBBBBBBBBBBB", "CCCCCCCCCCCCCC"};
+    static char[][] solution = {
+            {'A', '0'},
+            {'B', '1'},
+            {'C', '2'}};
 
     public static void main(String[] args) {
 
 
 	// write your code here
-        Sudoku2.sudoku2(grid);
+        IsCryptSolution.isCryptSolution(crypt, solution);
       }
 
 
