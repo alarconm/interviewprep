@@ -1,18 +1,20 @@
 package com.company;
 
+import java.lang.reflect.Array;
+
 public class Main {
 
-    static String[] crypt = {"AAAAAAAAAAAAAA", "BBBBBBBBBBBBBB", "CCCCCCCCCCCCCC"};
-    static char[][] solution = {
-            {'A', '0'},
-            {'B', '1'},
-            {'C', '2'}};
+
 
     public static void main(String[] args) {
 
+        int[] testHisto = {1,67,99,21,55,87,23,33,11};
 
-	// write your code here
-        IsCryptSolution.isCryptSolution(crypt, solution);
+        Histo histo = new Histo(testHisto);
+
+        histo.getHisto();
+
+
       }
 
 
